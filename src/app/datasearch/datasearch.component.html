@@ -1,0 +1,55 @@
+<!-- MAIN START -->
+<main>
+  <!-- PAGE HEADER-->
+  <h2>{{pageHeading}}</h2>
+  <p>{{pageIntro}}</p>
+  <a routerLink="/listings/add-listing" class="simple-button" *ngIf="AuthService.isAuthenticated()"><i class="fa-solid fa-circle-plus"></i>Add Listing</a>
+  <div>
+    <search-filter (searchClicked)="onSearch($event)"></search-filter>
+    <div id="loading"></div>
+    <div id="data-table" *ngIf="Listings.length > 0; else noResultsSection">
+      <table>
+        <thead>
+          <tr>
+            <th (click)="onTableHeadingClicked('title')">Listing</th>
+            <th (click)="onTableHeadingClicked('month')">Date</th>
+            <th (click)="onTableHeadingClicked('source')">Source</th>
+            <th (click)="onTableHeadingClicked('town')">Location</th>
+            <th (click)="onTableHeadingClicked('unit_size')">Bedrooms</th>
+            <th (click)="onTableHeadingClicked('house_type')">Type</th>
+            <th (click)="onTableHeadingClicked('rent_amount')">Rent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let listing of Listings; let i = index">
+            <td><a routerLink="/listings/{{listing._id}}">{{listing.title | truncate}}</a></td>
+            <td>{{listing.month}}</td>
+            <td>{{listing.source}}</td>
+            <td>{{listing.town}}</td>
+            <td>{{listing.unit_size}}</td>
+            <td>{{listing.house_type}}</td>
+            <td>{{listing.rent_amount | currency}}</td>
+            <td *ngIf="AuthService.isAuthenticated()"><a (click)="delete(listing._id, i)"><i class="fa-solid fa-trash"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- #data-table -->
+      <!-- Pagination -->
+      <div id="pagination" *ngIf="totalPages > 1">
+        <a (click)="navigateToPage(1)" *ngIf="currentPage > 1"><i class="fa-solid fa-angles-left"></i> First</a>
+        <a (click)="navigateToPage(currentPage - 1)" *ngIf="currentPage > 1"><i class="fa-solid fa-chevron-left"></i> Previous</a>
+        <a class="disabled" *ngIf="currentPage == 1"><i class="fa-solid fa-angles-left"></i> First</a>
+        <a class="disabled" *ngIf="currentPage == 1"><i class="fa-solid fa-chevron-left"></i> Previous</a>
+        <a (click)="navigateToPage(currentPage + 1)" *ngIf="currentPage < totalPages">Next <i class="fa-solid fa-chevron-right"></i></a>
+        <a (click)="navigateToPage(totalPages)" *ngIf="currentPage < totalPages">Last <i class="fa-solid fa-angles-right"></i></a>
+        <a class="disabled" *ngIf="currentPage == totalPages">Next <i class="fa-solid fa-chevron-right"></i></a>
+        <a class="disabled" *ngIf="currentPage == totalPages">Last <i class="fa-solid fa-angles-right"></i></a>
+      <p>{{currentPage}} of {{totalPages}}</p>
+    </div>
+    <!-- No results section -->
+    <ng-template #noResultsSection>
+      <p class="no-results">No listings found.</p>
+    </ng-template>
+  </div>
+</main>
+<!-- MAIN END -->

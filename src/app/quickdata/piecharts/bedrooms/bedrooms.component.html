@@ -1,0 +1,10 @@
+<div class="quickdata-piechart-individual">
+  <div class="left">
+    <h4>No. of Bedrooms</h4>
+    <p>The number of bedrooms is almost important as rent.  </p>
+    <div *ngFor="let label of sortedLabels; index as i; trackBy: trackByFn" [@fadeIn]><span [style.backgroundColor]="colors[i]"></span><p>{{ sortedLabels[i] }}</p></div>
+  </div>
+  <div class="right">
+    <canvas id="chartCanvas"></canvas>
+  </div>
+</div>

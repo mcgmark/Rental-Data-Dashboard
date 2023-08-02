@@ -1,0 +1,10 @@
+<div class="quickdata-piechart-individual">
+  <div class="left">
+    <h4>Includes Hydro</h4>
+    <p>Some rentals come with hydro electrcity includes in the renal cost. </p>
+    <div *ngFor="let label of sortedLabels; index as i; trackBy: trackByFn" [@fadeIn]><span [style.backgroundColor]="colors[i]"></span><p>{{ sortedLabels[i] }}</p></div>
+  </div>
+  <div class="right">
+    <canvas id="includesHydroPie"></canvas>
+  </div>
+</div>

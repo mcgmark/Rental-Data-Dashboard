@@ -1,0 +1,193 @@
+/* STYLES INDEX
+Base Styles
+Header
+Footer
+Main
+Quick Data Page
+Data Chart Page
+Listings Page
+Import Page
+Individual Listing Page
+Form Styles
+*/
+
+:root {
+  --georgian-green: #62a744;
+  --georgian-blue: #0F4B87;
+  --gray-vert-line: #d9d9d9;
+  --black-text: #434343;
+  --light-grey: #f6f6f6;
+
+  /** font **/
+  font-size: 16px;
+}
+
+/* BASE STYLES */
+
+html {
+  height: 100%;
+  width: 100%;
+  background: var(--light-grey);
+  background: linear-gradient(152deg, rgb(218, 235, 255) 1%, rgb(225, 225, 225) 30%, rgb(226, 235, 229) 67%,rgb(245, 249, 250) 80%, rgb(218, 235, 255) 100%);
+  background-attachment: fixed;
+
+  /** flexbox **/
+  display: flex;
+  justify-content: center;
+
+  /** font **/
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  max-width: 1325px;
+  margin-top: 0rem;
+  overflow-y: scroll; /* Show scrollbars always */
+  transition: all 250ms;
+}
+
+p,
+h1,
+h2 {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+      margin-top: 1rem;
+    }
+}
+/* BASE STYLES END */
+
+
+
+
+
+/** MAIN STYLES **/
+
+main {
+  background-color: #fff;
+  padding: 3rem;
+  padding-top: 3rem;
+  margin-bottom: 12px;
+  min-height: 550px;
+}
+
+main h2 {
+  font-size: 2.5rem;
+  color: var(--georgian-blue);
+  margin-bottom: 1.5rem;
+}
+
+main p {
+  font-size: 1.25rem;
+  color: var(--black-text);
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/** MAIN STYLES END **/
+
+
+
+/* IMPORT PAGE */
+
+section#file-upload {
+  width: 319px;
+  min-height: 228px;
+  padding: 2rem;
+  border: 1px solid var(--georgian-blue);
+  margin-top: 3rem;
+}
+
+section#file-upload:nth-of-type(3) {
+  justify-self: flex-start;
+}
+
+main#import-page>section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 319px;;
+  gap: 10px;
+}
+
+section#file-upload div {
+ flex-grow: 1;
+}
+
+section#file-upload select {
+  color: var(--georgian-blue);
+  font-weight: bold;
+  font-size: 1.05rem;
+  padding: .25rem;
+ }
+
+ section#file-upload input {
+  color: var(--georgian-blue);
+  font-size: 1rem;
+  padding: .25rem;
+ }
+
+main#import-page>section>section#file-upload {
+  display: flex;
+  flex-direction: column;
+  justify-self: stretch;
+  align-content: space-between;
+}
+
+section#file-upload .save-btn {
+  margin: 0px;
+}
+
+.confirm, .cancel {
+  max-width: 300px;
+}
+
+.cancel {
+  background-color: #bb3a3a;
+}
+
+button.save-btn {
+  height: 54px;
+}
+
+/* IMPORT PAGE END */
+
+
+.hidden {
+  display: none;
+}
+
+/* About us page */
+/* main ul.aboutPageUl {
+  list-style: none;
+} */
+
+main ul.aboutPageUl li {
+  padding: 5px 0;
+}
+
+#loading {
+  position: relative;
+    left: 50%;
+    z-index: 1;
+    margin:30px 3px;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid var(--georgian-green);
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }

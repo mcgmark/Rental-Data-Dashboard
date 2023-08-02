@@ -1,0 +1,10 @@
+<div class="quickdata-piechart-individual">
+  <div class="left">
+    <h4>Busiest Months</h4>
+    <p>What season it is plays a big role in cost and availability. </p>
+    <div *ngFor="let label of sortedLabels; index as i; trackBy: trackByFn" [@fadeIn]><span [style.backgroundColor]="colors[i]"></span><p>{{ sortedLabels[i] }}</p></div>
+  </div>
+  <div class="right">
+    <canvas id="busiestMonthsPie"></canvas>
+  </div>
+</div>

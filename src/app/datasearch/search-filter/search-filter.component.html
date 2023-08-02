@@ -1,0 +1,78 @@
+<!-- Filter form injected from partial here -->
+<section id="filter-form">
+  <form (ngSubmit)="onSearchClick()">
+      <div>
+        <select id="month" name="month" [(ngModel)]="month">
+            <option value="">Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+      </div>
+      <div>
+        <select id="source" name="source" [(ngModel)]="source">
+            <option value="">Source</option>
+            <option value="Kijiji">Kijiji</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Realtor">Realtor</option>
+            <option value="Freerentads">Freerentads</option>
+            <option value="Agsecure">Agsecure</option>
+            <option value="Rentals">Rentals</option>
+            <option value="Zolo">Zolo</option>
+        </select>
+      </div>
+      <div>
+        <select id="town" name="town" [(ngModel)]="town">
+            <option value="">Town</option>
+            <option value="Barrie">Barrie</option>
+            <option value="Bradford">Bradford</option>
+            <option value="Collingwood">Collingwood</option>
+            <option value="Essa">Essa</option>
+            <option value="Innisfil">Innisfil</option>
+            <option value="Midland">Midland</option>
+            <option value="New Tecumseth">New Tecumseth</option>
+            <option value="Orillia">Orillia</option>
+            <option value="Severn">Severn</option>
+            <option value="Springwater">Springwater</option>
+             <option value="Wasaga">Wasaga</option>
+        </select>
+        </div>
+        <div>
+        <select id="unit_size" name="unit_size" [(ngModel)]="unit_size">
+          <option value="">Bedrooms</option>
+            <option value="0">Studio</option>
+            <option value="1">1 bedroom</option>
+            <option value="2">2 bedroom</option>
+            <option value="3">3 bedroom</option>
+            <option value="4">4+ bedroom</option>
+        </select>
+        </div>
+        <div>
+        <select id="house_type" name="house_type" [(ngModel)]="house_type">
+          <option value="">Type</option>
+            <option value="Detached">Detached</option>
+            <option value="Semi-Detached">Semi-detached</option>
+            <option value="Townhouse">Townhouse</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Condominium">Condominium</option>
+        </select>
+        </div>
+        <div>
+          <input type="text" id="keywords" name="keywords" placeholder="Keywords" [(ngModel)]="keywords">
+        </div>
+        <div>
+          <button type="submit" class="filter-btn"><i class="fa-solid fa-filter"></i>Filter</button>
+          <a (click)="onResetClick()"><button class="filter-btn"><i class="fa-solid fa-circle-xmark"></i>Clear Filters</button></a>
+        </div>
+  </form>
+</section>
+<!-- Filter form injected from partial end -->

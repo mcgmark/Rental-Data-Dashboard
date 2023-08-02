@@ -1,0 +1,11 @@
+<main>
+  <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" id="login">
+    <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
+    <p id="pwMsg" *ngIf="messages !== ''">{{ messages }}</p>
+    <p class="msg" *ngIf="messages === ''">Please enter your credentials.</p>
+    <input formControlName="username" id="username" placeholder="USERNAME" required />
+    <div><input formControlName="password" id="password" type="password" placeholder="PASSWORD" required /><i id="pwShowHide" (click)="passwordShowHide()" class="q fa-sharp fa-solid fa-eye"></i></div>
+    <button>Login</button>
+    Need an account? <a href="/auth/register" title="Register"><i class="fa-solid fa-caret-right"></i> Register</a>
+  </form>
+</main>

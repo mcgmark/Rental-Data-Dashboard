@@ -1,0 +1,85 @@
+form#login {
+  box-sizing: border-box;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: .55rem;
+  border-radius: 15px;
+  background-color: var(--light-grey);
+  padding: 2rem 1rem 2rem 2rem;
+  white-space: nowrap;
+  border: 1px solid #eeeeee;
+}
+
+form#login a{
+color: var(--georgian-blue);
+}
+
+#pwMsg {
+  box-sizing: border-box;
+  background-color: #ffc0c0;
+  padding: .5rem;
+  width: 90%;
+}
+
+span#pwMsg:empty {
+  display: none;
+}
+
+form#login input {
+  width: 90%;
+  font-size: .75rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #bebebe;
+}
+
+form#login i {
+  color: var(--georgian-blue);
+}
+
+form#login input:focus {
+  outline: 3px solid var(--georgian-green);
+}
+
+
+form#login button, form#create-edit button, label.save-btn, button {
+  display: block;
+  box-sizing: border-box;
+  width: 90%;
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: var(--georgian-blue);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+label.save-btn {
+  margin-top: 2rem;
+}
+
+form#login a {
+  display: inline;
+}
+
+form#login button:hover {
+  background-color: #0b3f77;
+}
+
+form#login i:hover {
+  cursor: pointer;
+}
+
+form#login #password {
+  margin-right: 1rem;
+}
+
+form#login h2 {
+  margin: 0;
+}

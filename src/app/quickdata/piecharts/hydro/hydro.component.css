@@ -1,0 +1,70 @@
+.quickdata-piechart-individual>.right {
+  justify-self: center;
+}
+
+.quickdata-piechart-individual>.left>h4 {
+  margin: 0px;
+  margin-bottom:.75rem;
+  font-size: 1.5rem;
+  color: var(--georgian-blue);
+}
+
+.quickdata-piechart-individual>.left>p {
+  font-size: 1.1rem;
+  line-height: 160%;
+}
+
+.quickdata-piechart-individual {
+  box-sizing: border-box;
+  background: var(--light-grey);
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  padding: 3rem;
+  overflow: hidden;
+
+  /* grid */
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+
+}
+
+.quickdata-piecharts-individual>canvas {
+  position: relative;
+  max-width: 100%;
+}
+
+.quickdata-piechart-individual .left div span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 250px;
+  margin-right: 5px;
+}
+
+.quickdata-piechart-individual>.left>div>p {
+  display: inline-block;
+  margin-bottom: 0px;
+  font-size: 1rem;
+  color: var(--georgian-blue);
+  font-weight: bold;
+}
+
+.quickdata-piechart-individual>.left>div {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 615px) {
+  div.quickdata-piechart-individual {
+    /* grid */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quickdata-piecharts-individual .right {
+    justify-self: end;
+  }
+}

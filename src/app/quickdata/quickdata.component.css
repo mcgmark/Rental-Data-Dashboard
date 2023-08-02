@@ -1,0 +1,36 @@
+section {
+  margin-top: 2rem;
+  /* grid */
+  display: grid;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+section#quickdata-piecharts {
+  box-sizing: border-box;
+  margin-top: 2rem;
+  /* grid */
+  display: grid;
+  justify-content: center;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  grid-template-rows: auto;
+}
+
+@media screen and (min-width: 615px) {
+  section {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+}
+
+@media screen and (min-width: 1090px) {
+  section {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+
+

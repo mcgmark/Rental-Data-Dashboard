@@ -1,0 +1,57 @@
+<!-- HEADER START -->
+<header>
+  <section id="header-top">
+      <!-- LOGO -->
+      <div id="logo-container">
+          <div id="logo"><a routerLink="/"><img src="/assets/images/georgian-college-logo.svg"></a></div>
+          <p>Centre for Changemaking & Social Innovation (CCSI)</p>
+      </div>
+      <!-- TEXT -->
+      <div id="header-top-text">
+          <span>Simcoe County</span>
+          <h1>Rental Market Survey Digital Tool</h1>
+      </div>
+      <div id="account-logon">
+        <ng-container *ngIf="AuthService.isAuthenticated()">
+            <a>{{AuthService.username}}</a>
+            <a (click)="onLogout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+        </ng-container>
+        <ng-container *ngIf="!AuthService.isAuthenticated()">
+            <a routerLink="/auth/register"><i class="fa-solid fa-pen-to-square"></i>Register</a>
+            <a routerLink="/auth/login"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+        </ng-container>
+      </div>
+  </section>
+  <!-- HERO BLOCKS -->
+  <section id="header-bottom">
+      <section class="hero-1">
+          <h2>Support Workers & <Br> Policy Makers</h2>
+          <div class="hero-divider"></div>
+          <p>If you're responsible for making decisions our data will help you.</p>
+      </section>
+      <section class="hero-2">
+          <h2>Renters &<br> Landlords</h2>
+          <div class="hero-divider"></div>
+          <p>Use our data to be better informed about what to expect renting in Simcoe County.</p>
+      </section>
+      <section class="hero-3">
+
+          <h2>CCSI & Simcoe<br> County Staff</h2>
+          <div class="hero-divider"></div>
+          <p>Enter rental market data, edit existing data, and delete data not needed.</p>
+      </section>
+  </section> <!-- #header-bottom -->
+  <!-- NAV -->
+  <nav>
+      <input type="checkbox" id="menuToggle" name="MenuToggle">
+      <section>
+        <a routerLink="/quick-data" routerLinkActive="active"><i class="fa-regular fa-lightbulb"></i> ANALYTICS</a>
+        <a routerLink="/data-charts" routerLinkActive="active"><i class="fa-solid fa-chart-line"></i> CHARTS</a>
+        <a routerLink="/listings" routerLinkActive="active"><i class="fa-solid fa-code"></i> DATA</a>
+      </section>
+      <div id="menu-toggle">
+        <label for="menuToggle"><i class="fa-solid fa-caret-down toggle-icon"></i></label>
+      </div>
+  </nav>
+</header>
+<!-- HEADER END -->

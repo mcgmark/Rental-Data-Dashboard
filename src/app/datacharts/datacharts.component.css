@@ -1,0 +1,45 @@
+section#charts-jump {
+  box-sizing: border-box;
+  color: var(--georgian-blue);
+  margin-top: 2.5rem;
+  background: var(--light-grey);
+  border: 1px solid #eeeeee;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+
+section#charts-jump a{
+  color: var(--georgian-green);
+  font-size: 1.05rem;
+  text-underline-offset: 7px;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+}
+
+section#charts-jump a:hover {
+  text-decoration: underline;
+}
+
+section#charts-jump h3 {
+  font-size: 1.5rem;
+  margin: .5rem;
+  margin-left: 0px;
+}
+
+section#charts-header h4 {
+  color: var(--georgian-blue);
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+section#charts-header p {
+  color: var(--black-text);
+  font-size: 1rem;
+  line-height: 140%;
+}
+
+section#charts-header {
+  box-sizing: border-box;
+  padding: 1rem 1.5rem;
+}

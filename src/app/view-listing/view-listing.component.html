@@ -1,0 +1,56 @@
+<!-- MAIN START -->
+ <main>
+  <a class="breadcrumb" routerLink="/listings"> BACK > ALL LISTINGS</a>
+  <section class="individual-left">
+      <img src="/assets/images/house-example.jpg" alt="Photo">
+      <br>
+  </section>
+  <section class="individual-right">
+      <h2>{{listing.title}}</h2>
+      <h3>{{listing.town}}</h3>
+      <div class="hero-divider"></div>
+      <h3>{{listing.rent_amount | currency}} / Month</h3>
+      <div class="hero-divider"></div>
+      <p>{{listing.description}}</p>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>Building Type <br>
+                {{listing.house_type}}
+              </td>
+              <td>Bedrooms <br>
+                {{listing.unit_size}}
+              </td>
+            </tr>
+            <tr>
+                <td>Address <br>
+                  {{listing.street_name}}, {{listing.town}}
+                </td>
+                <td>Postal Code <br>
+                  {{listing.postal_code}}
+                </td>
+            </tr>
+            <tr>
+                <td>Source <br>
+                  {{listing.source}}
+                </td>
+                <td>Source Url <br>
+                  <a href="{{listing.source_url}}">{{listing.source_url}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Utilities Included <br>
+                  <span *ngIf="listing.utilities_included">Yes</span>
+                  <span *ngIf="!listing.utilities_included">No</span>
+                </td>
+                  <td>Landlord Type <br>
+                  {{listing.landlord_type}}
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </section>
+</main>
+<!-- MAIN END -->

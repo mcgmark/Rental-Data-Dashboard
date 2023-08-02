@@ -1,0 +1,13 @@
+<main>
+  <form [formGroup]="registerForm" (ngSubmit)="submitRegistration()" id="login">
+    <h2><i class="fa-solid fa-pen-to-square"></i> Register</h2>
+    <p id="pwMsg" *ngIf="messages !== ''">{{ messages }}</p>
+    <p class="msg" *ngIf="messages === ''">Please create your account.</p>
+    <input formControlName="username" id="username" required type="email" placeholder="EMAIL@EMAIL.COM" />
+    <div><input formControlName="password" id="password" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="PASSWORD"/><i id="pwShowHide" (click)="passwordShowHide()" class="q fa-sharp fa-solid fa-eye"></i></div>
+    <input formControlName="confirm" id="confirm" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="CONFIRM PASSWORD" (keyup)="comparePasswords()" />
+    <span id="pwMsg"></span>
+    <button>Register</button>
+    Already have an account? <a href="/auth/login" title="Login"><i class="fa-solid fa-caret-right"></i> Login</a>
+  </form>
+  </main>

@@ -1,0 +1,10 @@
+<div class="quickdata-piechart-individual">
+  <div class="left">
+    <h4>Building Type</h4>
+    <p>House or apartment it makes a big difference.  </p>
+    <div *ngFor="let label of sortedLabels; index as i; trackBy: trackByFn" [@fadeIn]><span [style.backgroundColor]="colors[i]"></span><p>{{ sortedLabels[i] }}</p></div>
+  </div>
+  <div class="right">
+    <canvas id="buildingTypePie"></canvas>
+  </div>
+</div>
