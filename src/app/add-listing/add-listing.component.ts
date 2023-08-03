@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { CrudService } from '../service/crud.service';
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { ListingModel } from '../model/listing.model';
+import { NotificationService } from '../service/notification.service';
+
+
 
 @Component({
   selector: 'app-add-listing',
@@ -21,7 +24,8 @@ export class AddListingComponent implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
-    private crudService: CrudService
+    private crudService: CrudService,
+    private notificationService: NotificationService
   ) {
 
     this.ListingModel = new ListingModel();
@@ -46,10 +50,12 @@ export class AddListingComponent implements OnInit {
 
   ngOnInit() { }
 
+
   submitListing(): any {
     this.crudService.addListing(this.createForm.value).subscribe(
       (res) => {
         const newListing = res._id;
+        this.notificationService.showNotification('New Listing Added!');
         this.router.navigate(['/listings', newListing]);
       },
     );

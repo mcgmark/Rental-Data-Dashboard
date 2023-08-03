@@ -6,6 +6,8 @@ let path = require('path');
 let cors = require('cors');
 let bodyParser = require('body-parser');
 
+app.use(cookieParser());
+
 let mongoose = require('mongoose');
 let mongoDb = require('./database/db');
 const User = require('./model/user');
@@ -46,8 +48,6 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-app.use(cookieParser());
 
 
 app.use(cors());

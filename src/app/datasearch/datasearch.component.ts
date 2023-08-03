@@ -2,7 +2,7 @@ import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { CrudService } from '../service/crud.service';
 import { AuthService } from '../service/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { NotificationService } from '../service/notification.service';
 
 @Component({
   selector: 'app-datasearch',
@@ -29,7 +29,8 @@ export class DatasearchComponent implements OnInit {
     private route: ActivatedRoute,
     private renderer: Renderer2,
     private el: ElementRef,
-    public AuthService: AuthService
+    public AuthService: AuthService,
+    private notificationService: NotificationService
     ) { }
 
 
@@ -65,6 +66,7 @@ export class DatasearchComponent implements OnInit {
       if(window.confirm('Are you sure you want to delete this?')) {
         this.crudService.deleteListing(id).subscribe((res) => {
           this.Listings.splice(i, 1);
+          this.notificationService.showNotification('Listing Deleted!');
         })
       }
     }

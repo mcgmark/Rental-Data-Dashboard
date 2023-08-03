@@ -51,6 +51,8 @@ apiRouter.get('/listings', async (req, res) => {
 })
 
 apiRouter.get('/listings/:id', async (req, res) => {
+  const cookies = req.cookies;
+  console.log(cookies);
   try {
     const listing = await Listing.findById(req.params.id);
     res.status(200).json(listing);

@@ -55,6 +55,8 @@ export class LoginformComponent {
           localStorage.setItem('token', res.token);
           localStorage.setItem('username', res.user.username);
           this.AuthService.isLoggedIn = true;
+          const expirationDate = new Date().getTime() + (30 * 24 * 60 * 60 * 1000);
+          document.cookie = `token=${res.token}; expires=${new Date(expirationDate).toUTCString()}; path=/; SameSite=Lax`;
         };
       },
       error: (error) => {

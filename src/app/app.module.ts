@@ -34,6 +34,7 @@ import { TotalmonthComponent } from './datacharts/totalmonth/totalmonth.componen
 import { AuthComponent } from './auth/auth.component';
 import { LoginformComponent } from './auth/loginform/loginform.component';
 import { RegisterformComponent } from './auth/registerform/registerform.component';
+import { NotificationPopComponent } from './notification-pop/notification-pop.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { RegisterformComponent } from './auth/registerform/registerform.componen
     TotalmonthComponent,
     AuthComponent,
     LoginformComponent,
-    RegisterformComponent
+    RegisterformComponent,
+    NotificationPopComponent
   ],
   imports: [
     BrowserModule,

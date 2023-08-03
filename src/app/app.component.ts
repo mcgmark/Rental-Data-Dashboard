@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './service/auth.service';
+import { NotificationService } from './service/notification.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,14 @@ import { AuthService } from './service/auth.service';
 
 export class AppComponent {
 
-  constructor(private AuthService: AuthService) {
+  notificationMessage: string = '';
+
+  constructor(private AuthService: AuthService, private NotificationService: NotificationService) {
     this.checkAuthStatus();
+
+    this.NotificationService.notificationMessage$.subscribe((message) => {
+      this.notificationMessage = message;
+    });
   }
 
 
