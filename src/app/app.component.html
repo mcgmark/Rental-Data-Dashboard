@@ -1,4 +1,8 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<main>
+  <breadcrumb></breadcrumb>
+  <router-outlet></router-outlet>
+</main>
+<alert-box [message]="alertMessage"></alert-box>
 <notification-pop [message]="notificationMessage"></notification-pop>
 <app-footer></app-footer>

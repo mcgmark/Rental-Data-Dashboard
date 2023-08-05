@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ListingModel } from '../model/listing.model';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +13,7 @@ export class CrudService {
   // Node/Express API
   private REST_API: string = 'http://localhost:8000/api';
 
-  // Http Header
-  private httpHeaders: HttpHeaders;
-
-  token = localStorage.getItem('token');
-
-  constructor(private httpClient: HttpClient) {
-
-    this.httpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `${this.token}`
-      });
-  }
-
+  constructor(private httpClient: HttpClient) {}
 
   // Get all listings
   getListings(page?: number, filters?: any): Observable<any> {
@@ -55,7 +43,7 @@ export class CrudService {
   // Add
   addListing(data: ListingModel): Observable<any> {
     let API_URL = `${this.REST_API}/add-listing`;
-    return this.httpClient.post(API_URL, data, { headers: this.httpHeaders})
+    return this.httpClient.post(API_URL, data)
       .pipe(
         catchError(this.handleError)
       )
@@ -64,7 +52,7 @@ export class CrudService {
   // Edit Listing
   editListing(id:any, data:any): Observable<any> {
     let API_URL = `${this.REST_API}/edit-listing/${id}`;
-    return this.httpClient.put(API_URL, data, { headers: this.httpHeaders })
+    return this.httpClient.put(API_URL, data)
       .pipe(
         catchError(this.handleError)
       )
@@ -73,7 +61,7 @@ export class CrudService {
   // Delete Listing
   deleteListing(id:any): Observable<any> {
     let API_URL = `${this.REST_API}/delete-listing/${id}`;
-    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
+    return this.httpClient.get(API_URL).pipe(
         catchError(this.handleError)
       )
   }

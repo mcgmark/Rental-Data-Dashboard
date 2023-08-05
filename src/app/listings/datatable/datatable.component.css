@@ -180,17 +180,6 @@ section#filter-form form div:nth-of-type(7){
   grid-template-columns: 1fr 1fr;
 }
 
-.filter-btn {
-  height: 50px;
-  width: 100%;
-}
-
-.filter-btn a{
-  height: 50px;
-  width: 100%;
-  font-size: 1rem;
-}
-
 @media screen and (min-width: 900px) {
   section#filter-form form {
     /* GRID */
@@ -218,6 +207,3 @@ section#filter-form form div:nth-of-type(7){
     display: none;
   }
 }
-
-
-/** LISTINGS PAGE END **/

@@ -32,6 +32,9 @@ section#filter-form form select, section#filter-form form input {
   background-color: var(--georgian-blue);
   border: 0px;
   cursor: pointer;
+  height: 50px;
+  width: 100%;
+  font-size: 1.05rem;
 }
 
 section#filter-form form input:focus {
@@ -75,17 +78,6 @@ section#filter-form form div:nth-of-type(7){
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
-}
-
-.filter-btn {
-  height: 50px;
-  width: 100%;
-}
-
-.filter-btn a{
-  height: 50px;
-  width: 100%;
-  font-size: 1rem;
 }
 
 @media screen and (min-width: 900px) {

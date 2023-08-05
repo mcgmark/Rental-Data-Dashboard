@@ -22,6 +22,7 @@ export class NotificationPopComponent implements OnInit {
         // Set a timeout to hide the notification after 5 seconds
         setTimeout(() => {
           this.showNotification = false;
+          
         }, 5000);
       }
     });

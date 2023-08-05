@@ -1,0 +1,14 @@
+<div class="alert" [ngClass]="{'show': showAlert}">
+  <div class="alert-box">
+    <div>
+      <i class="fa-solid fa-circle-exclamation"></i>
+  </div>
+    <div>
+      <p>{{ message }}</p>
+    </div>
+    <div>
+      <button class="btn-confirm" (click)="onConfirm()">Confirm</button>
+      <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+    </div>
+  </div>
+</div>

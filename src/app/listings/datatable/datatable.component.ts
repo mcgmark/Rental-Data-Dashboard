@@ -1,17 +1,18 @@
 import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
-import { CrudService } from '../service/crud.service';
-import { AuthService } from '../service/auth.service';
+import { CrudService } from '../../service/crud.service';
+import { AuthService } from '../../service/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NotificationService } from '../service/notification.service';
+import { NotificationService } from '../../service/notification.service';
+import { AlertService } from 'src/app/service/alert.service';
 
 @Component({
-  selector: 'app-datasearch',
-  templateUrl: './datasearch.component.html',
-  styleUrls: ['./datasearch.component.css'],
+  selector: 'data-table',
+  templateUrl: './datatable.component.html',
+  styleUrls: ['./datatable.component.css'],
 })
 
 
-export class DatasearchComponent implements OnInit {
+export class DatatableComponent implements OnInit {
   pageHeading = 'Rental Market Data';
   pageIntro = `We've taken the initiative and searched the internet for rental listings. We collected all of the rental listings and now you're able to search through them for the data you need. Use our filters and search feature to narrow down your search results.`;
 
@@ -30,7 +31,8 @@ export class DatasearchComponent implements OnInit {
     private renderer: Renderer2,
     private el: ElementRef,
     public AuthService: AuthService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private alertService: AlertService
     ) { }
 
 
@@ -62,13 +64,16 @@ export class DatasearchComponent implements OnInit {
       this.renderer.setStyle(loading, 'display', 'none');
     }
 
-    delete(id:string, i:number) {
-      if(window.confirm('Are you sure you want to delete this?')) {
-        this.crudService.deleteListing(id).subscribe((res) => {
-          this.Listings.splice(i, 1);
-          this.notificationService.showNotification('Listing Deleted!');
-        })
-      }
+    delete(id: string, i: number): void {
+      const message = 'Are you sure you want to delete this?';
+      this.alertService.showAlertWithConfirm(message, (confirmed) => {
+        if (confirmed) {
+            this.crudService.deleteListing(id).subscribe((res) => {
+              this.Listings.splice(i, 1);
+              this.notificationService.showNotification('Listing Deleted!');
+            });
+        }
+      });
     }
 
     onTableHeadingClicked(sortField: string): void {

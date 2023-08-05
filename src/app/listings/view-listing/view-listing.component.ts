@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CrudService } from '../service/crud.service';
-import { ListingModel } from '../model/listing.model';
+import { CrudService } from '../../service/crud.service';
+import { ListingModel } from '../../model/listing.model';
 
 @Component({
   selector: 'app-view-listing',

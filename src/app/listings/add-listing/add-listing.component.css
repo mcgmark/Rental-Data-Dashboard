@@ -29,7 +29,7 @@ form#create-edit select {
 }
 
 form#create-edit label {
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 form#create-edit textarea {
@@ -43,4 +43,14 @@ form#create-edit textarea {
 
 .form {
   margin-top: 1rem;
+}
+
+.save-btn {
+  color: #fff;
+  background-color: var(--georgian-blue);
+  border: 0px;
+  cursor: pointer;
+  height: 150px;
+  width: 150px;
+  font-size: 1.05rem;
 }

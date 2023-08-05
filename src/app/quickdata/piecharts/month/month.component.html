@@ -5,6 +5,8 @@
     <div *ngFor="let label of sortedLabels; index as i; trackBy: trackByFn" [@fadeIn]><span [style.backgroundColor]="colors[i]"></span><p>{{ sortedLabels[i] }}</p></div>
   </div>
   <div class="right">
+ 
     <canvas id="busiestMonthsPie"></canvas>
+
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './service/auth.service';
+import { AlertService } from './service/alert.service';
 import { NotificationService } from './service/notification.service';
 
 
@@ -13,11 +14,16 @@ import { NotificationService } from './service/notification.service';
 export class AppComponent {
 
   notificationMessage: string = '';
+  alertMessage: string = '';
 
-  constructor(private AuthService: AuthService, private NotificationService: NotificationService) {
+  constructor(private alertService: AlertService, private AuthService: AuthService, private NotificationService: NotificationService) {
     this.checkAuthStatus();
 
     this.NotificationService.notificationMessage$.subscribe((message) => {
+      this.notificationMessage = message;
+    });
+
+    this.alertService.alertMessage$.subscribe((message) => {
       this.notificationMessage = message;
     });
   }

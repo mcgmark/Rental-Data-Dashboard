@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { UserModel } from '../../model/user';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'login-form',
@@ -20,6 +21,7 @@ export class LoginformComponent {
     public formBuilder: FormBuilder,
     private router: Router,
     private AuthService: AuthService,
+    private NotificationService: NotificationService,
     private renderer: Renderer2
   ) {
 
@@ -57,6 +59,7 @@ export class LoginformComponent {
           this.AuthService.isLoggedIn = true;
           const expirationDate = new Date().getTime() + (30 * 24 * 60 * 60 * 1000);
           document.cookie = `token=${res.token}; expires=${new Date(expirationDate).toUTCString()}; path=/; SameSite=Lax`;
+          this.NotificationService.showNotification('Login Successful!');
         };
       },
       error: (error) => {

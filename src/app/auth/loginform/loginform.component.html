@@ -1,4 +1,4 @@
-<main>
+
   <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" id="login">
     <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
     <p id="pwMsg" *ngIf="messages !== ''">{{ messages }}</p>
@@ -8,4 +8,4 @@
     <button>Login</button>
     Need an account? <a href="/auth/register" title="Register"><i class="fa-solid fa-caret-right"></i> Register</a>
   </form>
-</main>
+

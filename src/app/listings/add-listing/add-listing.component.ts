@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CrudService } from '../service/crud.service';
+import { CrudService } from '../../service/crud.service';
 import { FormGroup, FormBuilder } from "@angular/forms";
-import { ListingModel } from '../model/listing.model';
-import { NotificationService } from '../service/notification.service';
-
+import { ListingModel } from '../../model/listing.model';
+import { NotificationService } from '../../service/notification.service';
 
 
 @Component({

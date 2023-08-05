@@ -4,8 +4,6 @@ let Listing = require('../model/Listing');
 const mongoose = require('mongoose');
 const isAuthenticated = require('./authMiddleware');
 
-
-
 /* GET - FIND ALL */
 apiRouter.get('/listings', async (req, res) => {
   // Paginate
@@ -51,8 +49,6 @@ apiRouter.get('/listings', async (req, res) => {
 })
 
 apiRouter.get('/listings/:id', async (req, res) => {
-  const cookies = req.cookies;
-  console.log(cookies);
   try {
     const listing = await Listing.findById(req.params.id);
     res.status(200).json(listing);
@@ -60,7 +56,6 @@ apiRouter.get('/listings/:id', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 })
-
 
 /* POST - CREATE */
 apiRouter.post('/add-listing', isAuthenticated, async (req, res) => {
