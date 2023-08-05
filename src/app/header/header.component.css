@@ -241,7 +241,7 @@ header section a:nth-of-type(3).active {
     color: var(--georgian-blue);
 }
 
-header nav div {
+header nav label div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -254,13 +254,13 @@ header nav input {
   display: none;
 }
 
-header nav label i {
+header nav label div i {
   margin-left: 1rem;
   color: #fff;
   font-size: 2.25rem;
 }
 
-header nav label i:hover {
+header nav label {
   cursor: pointer;
 }
 
@@ -269,7 +269,7 @@ header nav #menuToggle:checked ~ section {
   transition: all 500ms;
 }
 
-header nav #menuToggle:checked~div>label>i {
+#menuToggle:checked~label div i {
   transform: rotate(180deg);
 }
 
