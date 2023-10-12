@@ -15,6 +15,7 @@ export class TotalmonthComponent implements OnInit {
   chart: any;
   data: any;
   sortedLabels: string[] = []
+  isLoading: Boolean = true;
 
   getData(): void {
     const monthCount: any = {};
@@ -69,6 +70,7 @@ export class TotalmonthComponent implements OnInit {
         this.getData();
         this.sortedLabels = Object.keys(this.data);
         this.createChart();
+        this.isLoading = false;
       }
     });
   }

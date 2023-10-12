@@ -5,7 +5,8 @@
   <a routerLink="/listings/add-listing" class="simple-button" *ngIf="AuthService.isAuthenticated()"><i class="fa-solid fa-circle-plus"></i>Add Listing</a>
   <div>
     <search-filter (searchClicked)="onSearch($event)"></search-filter>
-    <div id="loading"></div>
+    <div id="loading" *ngIf="isLoading; else dataLoaded"></div>
+    <ng-template #dataLoaded>
     <div id="data-table" *ngIf="Listings.length > 0; else noResultsSection">
       <table>
         <thead>
@@ -49,5 +50,6 @@
     <ng-template #noResultsSection>
       <p class="no-results">No listings found.</p>
     </ng-template>
+  </ng-template>
   </div>
 <!-- MAIN END -->

@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   // Node/Express API
-  private REST_API: string = 'http://localhost:8000/api/auth';
+  private REST_API: string = 'http://mcgmark-001-site5.dtempurl.com/api/auth';
 
   constructor(private httpClient: HttpClient) { }
 

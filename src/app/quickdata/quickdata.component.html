@@ -5,19 +5,24 @@
     <p>{{pageIntro}}</p>
   </header>
 
+  <div *ngIf="isLoading; else dataLoaded">
+    <loading-animation></loading-animation>
+  </div>
   <!-- Quick Data Stats -->
-  <section id="quickdata-stats">
-    <pop-month></pop-month>
-    <avg-rent></avg-rent>
-    <pop-type></pop-type>
-    <pop-bedroom></pop-bedroom>
-  </section> <!-- #quickdata-stats -->
+  <ng-template #dataLoaded>
+    <section id="quickdata-stats">
+      <pop-month></pop-month>
+      <avg-rent></avg-rent>
+      <pop-type></pop-type>
+      <pop-bedroom></pop-bedroom>
+    </section>
 
-  <!-- Quickdata Pie Charts -->
-  <section id="quickdata-piecharts">
-    <bedrooms-chart></bedrooms-chart>
-    <type-chart></type-chart>
-    <month-chart></month-chart>
-    <hydro-chart></hydro-chart>
-  </section> <!-- #quickdata-piecharts -->
+    <!-- Quickdata Pie Charts -->
+    <section id="quickdata-piecharts">
+      <bedrooms-chart></bedrooms-chart>
+      <type-chart></type-chart>
+      <month-chart></month-chart>
+      <hydro-chart></hydro-chart>
+    </section> <!-- #quickdata-piecharts -->
+  </ng-template>
 <!-- MAIN END -->

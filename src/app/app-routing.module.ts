@@ -13,38 +13,31 @@ import { RegisterformComponent } from './auth/registerform/registerform.componen
 import { AuthGuard } from './guard/auth.guard'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/quick-data', pathMatch: 'full' },
-  { path: 'quick-data', component: QuickdataComponent, data: { breadcrumbLabel: 'Analytics'} },
-  { path: 'data-charts', component: DatachartsComponent, data: { breadcrumbLabel: 'Charts'} },
-  { path: 'listings',component: ListingsComponent, data: { breadcrumbLabel: 'Listings'},
+  { path: '', redirectTo: '/quick-data', pathMatch: 'full' }, // Redirect root to /quick-data
+  { path: 'quick-data', component: QuickdataComponent, data: { breadcrumbLabel: 'Analytics' } },
+  { path: 'data-charts', component: DatachartsComponent, data: { breadcrumbLabel: 'Charts' } },
+  {
+    path: 'listings',
+    component: ListingsComponent,
+    data: { breadcrumbLabel: 'Listings' },
     children: [
-      {
-        path: '', component: DatatableComponent, data: { breadcrumbLabel: 'Search'}
-      },
-      {
-        path: 'data-search', component: DatatableComponent, data: { breadcrumbLabel: 'Search'},
-      },
-      {
-        path: 'add-listing', component: AddListingComponent, canActivate: [AuthGuard], data: { breadcrumbLabel: 'Add Listing'},
-      },
-      {
-        path: ':id', component: ViewListingComponent, data: { breadcrumbLabel: 'View Listing'},
-      },
+      { path: '', component: DatatableComponent, data: { breadcrumbLabel: 'Search' } }, // Default child route
+      { path: 'data-search', component: DatatableComponent, data: { breadcrumbLabel: 'Search' } },
+      { path: 'add-listing', component: AddListingComponent, canActivate: [AuthGuard], data: { breadcrumbLabel: 'Add Listing' } },
+      { path: ':id', component: ViewListingComponent, data: { breadcrumbLabel: 'View Listing' } },
     ],
   },
-  { path: 'auth', data: { breadcrumbLabel: 'Auth'},
+  {
+    path: 'auth',
+    data: { breadcrumbLabel: 'Auth' },
     children: [
-      {
-        path: '', component: LoginformComponent, data: { breadcrumbLabel: 'Login'}
-      },
-      {
-        path: 'login', component: LoginformComponent, data: { breadcrumbLabel: 'Login'}
-      },
-      {
-        path: 'register', component: RegisterformComponent, data: { breadcrumbLabel: 'Register'}
-      },
+      { path: '', component: LoginformComponent, data: { breadcrumbLabel: 'Login' } }, // Default child route
+      { path: 'login', component: LoginformComponent, data: { breadcrumbLabel: 'Login' } },
+      { path: 'register', component: RegisterformComponent, data: { breadcrumbLabel: 'Register' } },
     ],
-  }
+  },
+  // Add a wildcard route for handling unknown routes
+  { path: '**', redirectTo: '/quick-data' },
 ];
 
 @NgModule({

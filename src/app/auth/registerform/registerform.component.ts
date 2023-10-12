@@ -4,6 +4,7 @@ import { AuthService } from '../../service/auth.service';
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { UserModel } from '../../model/user';
 import { tap } from 'rxjs/operators';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'register-form',
@@ -21,7 +22,8 @@ export class RegisterformComponent implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private AuthService: AuthService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private NotificationService: NotificationService,
   ) {
 
     this.UserModel = new UserModel();
@@ -71,12 +73,13 @@ export class RegisterformComponent implements OnInit {
       next: (res) => {
         // Handle the successful response here
         if (res && res.message === 'Registration successful') {
-          this.router.navigate(['/listings']);
+          this.router.navigate(['/auth/login']);
+          this.NotificationService.showNotification('Account Created!');
         }
       },
       error: (error) => {
         // Handle any error that occurs during the HTTP request
-        this.messages = error.error.error;
+        this.messages = 'Username Taken';
       }
     });
   }

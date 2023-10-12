@@ -11,7 +11,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class CrudService {
 
   // Node/Express API
-  private REST_API: string = 'http://localhost:8000/api';
+  private REST_API: string = 'http://mcgmark-001-site5.dtempurl.com/api';
 
   constructor(private httpClient: HttpClient) {}
 

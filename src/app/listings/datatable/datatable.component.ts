@@ -21,6 +21,8 @@ export class DatatableComponent implements OnInit {
   currentPage: number = 1;
   totalPages: number = 0;
 
+  isLoading: Boolean = true;
+
   sortField: string = 'title';
   sortOrder: 'asc' | 'desc' = 'asc';
 
@@ -33,7 +35,7 @@ export class DatatableComponent implements OnInit {
     public AuthService: AuthService,
     private notificationService: NotificationService,
     private alertService: AlertService
-    ) { }
+    ){};
 
 
     onSearch(filters: any): void {
@@ -46,9 +48,7 @@ export class DatatableComponent implements OnInit {
         if (res) {
           this.Listings = res.docs;
           this.totalPages = res.totalPages;
-          setTimeout(() => {
-            this.hideLoading();
-          }, 200);
+          this.isLoading = false;
         }
       });
     }
@@ -57,11 +57,6 @@ export class DatatableComponent implements OnInit {
       // Update the 'page' query parameter using Angular's router
       this.currentPage = pageNumber;
       this.fetchData({});
-    }
-
-    hideLoading(): void {
-      const loading = this.el.nativeElement.querySelector('#loading');
-      this.renderer.setStyle(loading, 'display', 'none');
     }
 
     delete(id: string, i: number): void {
@@ -84,7 +79,6 @@ export class DatatableComponent implements OnInit {
         this.sortField = sortField;
         this.sortOrder = 'asc'; // Reset sorting order to 'asc' when sorting by a new field
       }
-
       this.sortListings();
     }
 

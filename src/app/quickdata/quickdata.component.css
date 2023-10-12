@@ -13,10 +13,10 @@ section#quickdata-piecharts {
   margin-top: 2rem;
   /* grid */
   display: grid;
-  align-items: center;
+  align-items: stretch;
+  justify-items: stretch;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  grid-template-rows: auto;
 }
 
 @media screen and (min-width: 615px) {

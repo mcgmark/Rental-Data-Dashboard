@@ -63,7 +63,7 @@ export class LoginformComponent {
         };
       },
       error: (error) => {
-        this.messages = error.error.error;
+        this.messages = 'Login Incomplete';
       }
     });
   }

@@ -40,6 +40,7 @@ import { NotificationPopComponent } from './notification-pop/notification-pop.co
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { DatatableComponent } from './listings/datatable/datatable.component';
 import { AlertComponent } from './alert/alert.component';
+import { LoadingAnimationComponent } from './loading-animation/loading-animation.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { AlertComponent } from './alert/alert.component';
     NotificationPopComponent,
     BreadcrumbComponent,
     DatatableComponent,
-    AlertComponent
+    AlertComponent,
+    LoadingAnimationComponent
   ],
   imports: [
     BrowserModule,
