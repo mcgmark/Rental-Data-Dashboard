@@ -9,7 +9,7 @@ let bodyParser = require('body-parser');
 app.use(cookieParser());
 
 let mongoose = require('mongoose');
-let mongoDb = require('./database/db');
+
 const User = require('./model/user');
 
 const listingRoute = require('./routes/listing.routes')
@@ -26,7 +26,7 @@ if(process.env.NODE_ENV != 'production'){
 }
 
 
-mongoose.connect(mongoDb.db)
+mongoose.connect(process.env.CONNECTION_STRING)
   .then((res) => {
     console.log("Connected to mongoDB");
   }).catch(() => {
