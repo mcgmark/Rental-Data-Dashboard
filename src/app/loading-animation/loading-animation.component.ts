@@ -10,9 +10,9 @@ import { Component } from '@angular/core';
 export class LoadingAnimationComponent {
   loadingMessage: string = "";
 
-  ngOnInIt() {
+  ngOnInit() {
     setInterval(() => {
-      this.loadingMessage = "Still Loading, Waking up API Server."
-    }, 1500);
+      this.loadingMessage = "Still Loading, waking up API Server."
+    }, 1700);
   }
 }
